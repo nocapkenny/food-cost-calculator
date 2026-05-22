@@ -19,10 +19,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: food-calc-front
-
     steps:
       - uses: actions/checkout@v4
 
@@ -30,7 +26,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: food-calc-front/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - run: npm ci
       - run: npx nuxt build --preset github_pages
@@ -39,7 +35,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: food-calc-front/.output/public
+          path: .output/public
 
   deploy:
     needs: build
