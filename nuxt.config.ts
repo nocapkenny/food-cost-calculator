@@ -27,5 +27,8 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+  app: {
+    baseURL: '/food-cost-calculator/'
   }
 })
