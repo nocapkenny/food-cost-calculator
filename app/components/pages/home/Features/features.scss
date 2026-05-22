@@ -1,0 +1,26 @@
+@use "~/assets/styles/_mixins.scss";
+
+.features{
+    padding-bottom: 43px;
+    &__inner{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        align-items: stretch;
+        gap: 50px;
+    }
+    &__title{
+        font-size: $font-size-xxl;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
+
+@include mixins.mobile{
+    .features{
+        &__inner{
+            gap: 25px;
+        }
+    }
+}

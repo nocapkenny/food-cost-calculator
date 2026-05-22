@@ -1,0 +1,50 @@
+@use "~/assets/styles/_mixins.scss";
+
+.header {
+  .nav {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav__list-link {
+    color: $app-color-black;
+    text-decoration: none;
+  }
+  .nav__list-link--title {
+    font-size: $font-size-xl;
+    font-weight: 500;
+  }
+  .nav__list-link:not(.nav__list-link--title) {
+    font-size: $font-size-xs;
+    font-weight: 700;
+    padding-bottom: 5px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: $app-color-black;
+      transition: width 0.3s ease-in-out;
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include mixins.mobile{
+  .header{
+    .nav__list-link--title{
+      font-size: $font-size-l;
+    }
+  }
+}

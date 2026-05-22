@@ -1,0 +1,53 @@
+@use "~/assets/styles/_mixins.scss";
+
+.steps{
+    padding-bottom: 43px;
+    &__inner{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        align-items: stretch;
+        gap: 50px;
+    }
+    &__title{
+        font-size: $font-size-xxl;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    &__item{
+        position: relative;
+    }
+    &__item-arrow{
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        z-index: 3;
+    }
+    &__item .text-card{
+        height: 100%;
+    }
+    .text-card__header-count{
+        display: none;
+    }
+}
+
+@media (max-width: 1125px){
+    .steps{
+        &__item-arrow{
+            display: none;
+        }
+        .text-card__header-count{
+            display: block;
+        }
+    }
+}
+
+@include mixins.mobile{
+    .steps{
+        &__inner{
+            gap: 25px;
+        }
+    }
+}

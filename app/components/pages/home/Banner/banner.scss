@@ -1,0 +1,26 @@
+@use "~/assets/styles/_mixins.scss";
+
+.banner {
+  padding-top: 52px;
+  padding-bottom: 33px;
+  &__img {
+    width: 100%;
+  }
+}
+
+@include mixins.tablet {
+  .banner {
+    &__img {
+      height: 350px;
+    }
+  }
+}
+
+@include mixins.mobile {
+  .banner {
+    &__img {
+      height: 250px;
+    }
+  }
+}
+

@@ -1,0 +1,54 @@
+@use "~/assets/styles/_mixins.scss";
+
+.hero{
+    background-color: $app-color-green;
+    padding-top: 60px;
+    padding-bottom: 42px;
+    color: $app-color-white;
+    &__title{
+        font-size: $font-size-xxxl;
+        font-weight: 700;
+        max-width: 670px;
+        margin-bottom: 40px;
+    }
+    &__description{
+        font-size: $font-size-l;
+        font-weight: 700;
+    }
+    &__description + .hero__description{
+        margin-top: 10px;
+    }
+    &__link{
+        margin-top: 135px;
+    }
+}
+
+@include mixins.mobile{
+    .hero{
+        height: calc(100vh - 84px);
+        .container{
+            height: 100%;
+        }
+        &__inner{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        &__title{
+            font-size: $font-size-xl;
+            margin-bottom: 0;
+        }
+        &__description{
+            font-size: $font-size-s;
+        }
+        &__link{
+            margin-top: 0px;
+        }
+        .btn{
+            width: 100%;
+            text-align: center;
+            font-size: $font-size-s;
+        }
+    }
+}

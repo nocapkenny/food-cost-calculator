@@ -1,0 +1,5 @@
+export { default as UiIconEdit } from './Edit.vue'
+export { default as UiIconExport } from './Export.vue'
+export { default as UiIconComputer } from './Computer.vue'
+export { default as UiIconMark } from './Mark.vue'
+export { default as UiIconArrowRight } from './ArrowRight.vue'

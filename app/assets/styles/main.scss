@@ -1,0 +1,16 @@
+@use "~/assets/styles/_reset.scss";
+@use "~/assets/styles/_vars.scss";
+
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+body {
+  font-size: $font-size-m;
+  line-height: 120%;
+  font-family: $montserrat-sans;
+  background-color: $app-color-white;
+  color: $app-color-black;
+}

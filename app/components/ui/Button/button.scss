@@ -1,0 +1,26 @@
+.btn{
+    font-size: 22px;
+    font-weight: 700;
+    color: $app-color-white;
+    padding: 13px 25px;
+    background-color: $app-color-gray-dark;
+    border-radius: 17px;
+    text-decoration: none;
+    line-height: 120%;
+    display: block;
+    width: fit-content;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    &--accent{
+        font-size: $font-size-l;
+        padding: 8px 16px;
+        background-color: $app-color-white;
+        color: $app-color-black;
+        border-radius: 10px;
+        border: 2px solid $app-color-black;
+        &:hover{
+            background-color: $app-color-black;
+            color: $app-color-white;
+        }
+    }
+}
