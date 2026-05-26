@@ -1,3 +1,5 @@
+@use "~/assets/styles/_mixins.scss";
+
 .btn{
     font-size: 22px;
     font-weight: 700;
@@ -11,6 +13,7 @@
     width: fit-content;
     border: none;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
     &--accent{
         font-size: $font-size-l;
         padding: 8px 16px;
@@ -22,5 +25,20 @@
             background-color: $app-color-black;
             color: $app-color-white;
         }
+    }
+    &:hover{
+        background-color: $app-color-black;
+        color: $app-color-white;
+    }
+    &:active{
+        background-color: $app-color-black;
+        color: $app-color-white;
+        transform: translateY(15px);
+    }
+}
+
+@include mixins.mobile{
+    .btn{
+        font-size: $font-size-xs;
     }
 }

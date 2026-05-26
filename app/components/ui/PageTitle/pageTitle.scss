@@ -1,0 +1,11 @@
+.page-title{
+    width: 100%;
+    background-color: $app-color-green;
+    padding: 6px 0;
+    &__text{
+        color: $app-color-white;
+        font-size: $font-size-xxl;
+        font-weight: 700;
+        text-align: center;
+    }
+}

@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   <button
     v-if="props.elementType === 'button'"
     :class="`btn btn--${props.type}`"
+    :disabled="props.disabled"
   >
     <slot />
   </button>

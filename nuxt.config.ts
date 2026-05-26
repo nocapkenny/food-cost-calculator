@@ -1,31 +1,40 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/styles/main.scss'],
+  css: ["~/assets/styles/main.scss"],
+  runtimeConfig: {
+    public: {
+      apiBase: "http://194.226.187.68:8000/api/v1"
+    }
+  },
   components: [
     {
-      path: '~/components/common',
-      pathPrefix: false
+      path: "~/components/common",
+      pathPrefix: false,
     },
     {
-      path: '~/components/pages/home',
-      pathPrefix: false
+      path: "~/components/pages/home",
+      pathPrefix: false,
     },
     {
-      path: '~/components/ui',
-      prefix: 'Ui',
-      pathPrefix: true
+      path: "~/components/pages/login",
+      pathPrefix: false,
+    },
+    {
+      path: "~/components/ui",
+      prefix: "Ui",
+      pathPrefix: true,
     },
   ],
-  modules: ['@nuxt/fonts', '@nuxt/icon', '@nuxt/image'],
+  modules: ["@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@vee-validate/nuxt"],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/styles/_vars.scss" as *;'
-        }
-      }
-    }
-  }
-})
+          additionalData: '@use "~/assets/styles/_vars.scss" as *;',
+        },
+      },
+    },
+  },
+});
