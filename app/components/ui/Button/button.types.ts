@@ -3,5 +3,5 @@ export interface ButtonProps {
     type?: "primary" | "accent";
     href?: string;
     disabled?: boolean;
-    onClick?: () => void;
+    click?: () => void;
 }

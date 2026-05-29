@@ -1,11 +1,33 @@
+@use "~/assets/styles/_mixins.scss";
+
 .page-title{
     width: 100%;
     background-color: $app-color-green;
     padding: 6px 0;
+    &--profile &__text{
+        text-align: left;
+    }
     &__text{
         color: $app-color-white;
         font-size: $font-size-xxl;
         font-weight: 700;
         text-align: center;
+    }
+    &__subtext{
+        font-size: $font-size-l;
+        font-weight: 700;
+        color: $app-color-white;
+        margin-top: 5px;
+    }
+}
+
+@include mixins.mobile{
+    .page-title{
+        &__text{
+            font-size: $font-size-l;
+        }
+        &__subtext{
+            font-size: $font-size-m;
+        }
     }
 }

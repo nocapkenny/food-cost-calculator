@@ -1,0 +1,31 @@
+.link-card {
+  padding: 10px 22px;
+  border: 4px solid $app-color-green;
+  border-radius: 17px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  &__header {
+    font-weight: 700;
+    font-size: $font-size-m;
+  }
+  &__description {
+    font-weight: 700;
+    font-size: $font-size-s;
+  }
+  &__link{
+    font-size: $font-size-xs;
+    font-weight: 700;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: $app-color-black;
+    svg{
+        width: 20px;
+        height: 20px;
+    }
+  }
+}

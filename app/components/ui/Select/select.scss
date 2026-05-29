@@ -1,0 +1,62 @@
+.select{
+    position: relative;
+    &__value,
+    &__value a{
+        font-size: $font-size-xs;
+        font-weight: 700;
+        color: $app-color-black;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        user-select: none;
+        text-decoration: none;
+    }
+    &__list{
+        display: none;
+        flex-direction: column;
+        background-color: $app-color-white;
+        border: 1px solid $app-color-green;
+        border-radius: 10px;
+        padding: 5px 10px;
+        position: absolute;
+        top: 100%;
+        margin-top: 10px;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        min-width: 150px;
+    }
+    &--open &__list{
+        display: flex;
+    }
+    & svg{
+        transition: all .3s ease;
+    }
+    &--open svg{
+        transform: rotate(180deg);
+    }
+    &__list-item:not(:last-child){
+        padding-bottom: 3px;
+        padding-top: 3px;
+        border-bottom: 1px solid $app-color-black;
+    }
+    &__item-btn{
+        font-size: $font-size-xs;
+        font-weight: 500;
+        color: $app-color-black;
+        background-color: transparent;
+        padding: 0; 
+        border: none;
+        cursor: pointer;
+    }
+    &__list-btn{
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 8px;
+    }
+}

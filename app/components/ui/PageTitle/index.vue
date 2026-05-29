@@ -4,12 +4,18 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  subtitle: {
+    type: String
+  }
 });
 </script>
 
 <template>
   <div class="page-title">
-    <h3 class="page-title__text">{{ props.title }}</h3>
+    <div class="container">
+      <h3 class="page-title__text">{{ props.title }}</h3>
+      <p class="page-title__subtext">{{ props.subtitle }}</p>
+    </div>
   </div>
 </template>
 

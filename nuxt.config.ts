@@ -26,6 +26,10 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
     {
+      path: "~/components/pages/profile",
+      pathPrefix: false,
+    },
+    {
       path: "~/components/ui",
       prefix: "Ui",
       pathPrefix: true,

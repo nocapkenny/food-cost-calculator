@@ -5,6 +5,9 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   elementType: "button",
   type: "primary",
 });
+
+const emits = defineEmits(["click"]);
+
 </script>
 
 <template>
@@ -12,6 +15,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     v-if="props.elementType === 'button'"
     :class="`btn btn--${props.type}`"
     :disabled="props.disabled"
+    @click="emits('click')"
   >
     <slot />
   </button>

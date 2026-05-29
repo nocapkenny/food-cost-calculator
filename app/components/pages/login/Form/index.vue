@@ -51,7 +51,7 @@ const onSubmit = handleSubmit(async (values: FormValues) => {
         </span>
       </div>
 
-      <div class="login__form-group">
+      <div class="login__form-group form-group">
         <UiInput
           v-model="password"
           v-bind="passwordAttrs"
@@ -59,7 +59,7 @@ const onSubmit = handleSubmit(async (values: FormValues) => {
           placeholder="Пароль"
           :class="errors.password ? 'input--error' : ''"
         />
-        <span class="login__form-error login__form-error--password" v-if="errors.password">
+        <span class="login__form-error form-error login__form-error--password" v-if="errors.password">
           <UiIconError /> {{ errors.password }}
         </span>
         <span class="login__form-error login__form-error--login" v-if="loginError">

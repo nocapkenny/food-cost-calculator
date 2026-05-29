@@ -14,3 +14,18 @@ body {
   background-color: $app-color-white;
   color: $app-color-black;
 }
+
+.form-group {
+  position: relative;
+}
+.form-error {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  bottom: -25px;
+  font-size: 17px;
+  font-weight: 700;
+  color: $app-color-error;
+  transition: all 0.3s ease;
+}

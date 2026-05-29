@@ -1,35 +1,78 @@
 <script setup lang="ts">
+import type { Business } from "~/features/business/api/types";
+
+// region COMPOSABLES
 const { user } = useAuth();
-const { setTitle, clearTitle } = usePageTitle();
+const {
+  hasBusinesses,
+  postBusiness,
+  fetchBusinesses,
+  isAddNewBusiness,
+  isBusinessesLoaded,
+  businessError,
+} = useBusiness();
 
-const title = computed(() =>
-  user.value?.first_name
-    ? `Добро пожаловать, ${user.value.first_name}`
-    : "Профиль",
-);
+// region REFS
+const newBusiness = ref(<Business>{
+  name: "",
+  description: "",
+});
 
+// region METHODS
+const closeAddModal = () => {
+  isAddNewBusiness.value = false;
+};
+const handleAddNewBusiness = async () => {
+  await postBusiness(newBusiness.value);
+  if (businessError.value.length === 0) {
+    closeAddModal();
+  }
+};
+
+// region HOOKS
 definePageMeta({
   layout: "main",
   middleware: "auth",
   title: "Профиль",
 });
 
-watchEffect(() => {
-  setTitle(title.value);
-});
-
-useHead(() => ({
-  title: title.value,
-}));
-
-onUnmounted(() => {
-  clearTitle();
+onMounted(async () => {
+  await fetchBusinesses();
 });
 </script>
 
 <template>
-  <section>
-    <h1>{{ user ? `${user.first_name} ${user.last_name}` : "" }}</h1>
-    <p>{{ user?.email }}</p>
+  <section class="profile">
+    <Stats />
   </section>
+  <Modal
+    @close="closeAddModal"
+    :isOpen="(isBusinessesLoaded && !hasBusinesses) || isAddNewBusiness"
+    :canClose="true"
+  >
+    <div class="modal__content-headers">
+      <p class="modal__content-header">
+        {{
+          isAddNewBusiness
+            ? "Введите название нового бизнеса"
+            : "Ведите учет вашего бизнеса"
+        }}
+      </p>
+      <p class="modal__content-header" v-if="!isAddNewBusiness">
+        Введите название
+      </p>
+    </div>
+    <div class="form-group">
+      <UiInput placeholder="Название" v-model="newBusiness.name" type="text" />
+      <span class="form-error" v-if="businessError.length > 0">
+        <UiIconError /> {{ businessError }}
+      </span>
+    </div>
+    <UiButton
+      @click="handleAddNewBusiness"
+      :disabled="newBusiness.name.length === 0"
+    >
+      Создать
+    </UiButton>
+  </Modal>
 </template>
