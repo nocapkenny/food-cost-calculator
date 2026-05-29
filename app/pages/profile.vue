@@ -48,7 +48,7 @@ onMounted(async () => {
   <Modal
     @close="closeAddModal"
     :isOpen="(isBusinessesLoaded && !hasBusinesses) || isAddNewBusiness"
-    :canClose="true"
+    :canClose="(isBusinessesLoaded && hasBusinesses) || isAddNewBusiness"
   >
     <div class="modal__content-headers">
       <p class="modal__content-header">
