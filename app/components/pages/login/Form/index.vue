@@ -3,8 +3,9 @@ import { useForm } from "vee-validate";
 import { loginSchema } from "~/features/auth/login.schema";
 import type { FormValues } from "./form.types";
 import type { LoginError } from "~/features/auth/api/types";
-import { login } from "~/features/auth/api/login";
 import { FetchError } from 'ofetch';
+
+const { signIn } = useAuth();
 
 const { defineField, handleSubmit, errors, isSubmitting } = useForm({
   validationSchema: loginSchema,
@@ -16,12 +17,13 @@ const loginError = ref<LoginError | null>(null)
 
 const onSubmit = handleSubmit(async (values: FormValues) => {
   const payload = {
-    username: values.email,
+    email: values.email,
     password: values.password,
   };
   try{
-    await login(payload)
+    await signIn(payload)
     loginError.value = null
+    navigateTo('/profile')
   } catch (error){
     if(error instanceof FetchError){
         const data = error.data as LoginError
@@ -67,7 +69,7 @@ const onSubmit = handleSubmit(async (values: FormValues) => {
 
       <div class="login__form-buttons">
         <UiButton :disabled="isSubmitting">Войти</UiButton>
-        <UiButton>Создать аккаунт</UiButton>
+        <UiButton elementType="link" href="/register">Создать аккаунт</UiButton>
       </div>
     </form>
   </section>

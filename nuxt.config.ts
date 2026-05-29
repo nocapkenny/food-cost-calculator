@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: ["~/assets/styles/main.scss"],
   runtimeConfig: {
     public: {
-      apiBase: "http://194.226.187.68:8000/api/v1"
+      apiBase: "https://api.foodcostcalc.ru/api/v1"
     }
   },
   components: [
@@ -19,6 +19,10 @@ export default defineNuxtConfig({
     },
     {
       path: "~/components/pages/login",
+      pathPrefix: false,
+    },
+    {
+      path: "~/components/pages/register",
       pathPrefix: false,
     },
     {
