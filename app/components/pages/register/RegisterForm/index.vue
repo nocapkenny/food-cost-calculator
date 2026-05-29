@@ -53,7 +53,7 @@ const onSubmit = handleSubmit(async (values: RegisterFormValues) => {
           v-model="last_name"
           v-bind="last_nameAttrs"
           type="text"
-          placeholder="Имя"
+          placeholder="Фамилия"
           :class="errors.last_name ? 'input--error' : ''"
         />
         <span class="login__form-error" v-if="errors.last_name">
